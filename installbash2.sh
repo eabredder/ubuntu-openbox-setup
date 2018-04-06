@@ -85,10 +85,10 @@ select opt3 in $SDBOPT; do
 		echo -e "/dev/sdb1 /media/sdb1 ext4 defaults 0 0" >> /etc/fstab
 		mount -a
 		chmod 777 /media/sdb1
-		echo" done."
+		echo done.
 	else
 		clear
-		echo "not an option."
+		echo not an option.
 	fi
 done
 
@@ -111,6 +111,10 @@ echo -e "xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Noise Cancell
 wget -P ~/Downloads/arc-dark-theme "https://github.com/dglava/arc-openbox/blob/master/arc-darker.obt"
 obconf --install ~/Downloads/arc-dark-theme/arc-darker.obt
 
+#openbox configs
+wget -P ~/.configs/openbox "https://github.com/eabredder/ubuntu-openbox-setup/blob/master/openbox/rc.xml"
+wget -P ~/.configs/openbox "https://github.com/eabredder/ubuntu-openbox-setup/blob/master/openbox/menu.xml"
+
 openbox --reconfigure
 openbox --restart
 
@@ -122,6 +126,12 @@ clear
 echo "installation complete"
 sleep 5
 echo "rebooting..."
-sleep 3
+echo 3
+sleep 1
+echo 2
+sleep 1
+echo 1
+sleep 1
+echo goodbye!
 reboot
 
