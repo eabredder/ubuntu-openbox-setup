@@ -99,7 +99,7 @@ echo -e "sleep 1\ncompton -b &\nguake &\nsh ~/.fehbg &\nsleep 5\nconky -b &\nspa
 
 #acpilight rules
 echo -e "SUBSYSTEM=="backlight", ACTION=="add",\nRUN+="/bin/chgrp video %S%p/brightness",\nRUN+="/bin/chmod g+w %S%p/brightness"" > /etc/udev/rules.d/90-backlight.rules
-usermod -a -G video eric
+usermod -a -G video $USERNAME
 
 #adding /dev/sdb1
 echo would you like to mount /dev/sdb1 and make it accessible? type mountsdb1 or skip to continue...
