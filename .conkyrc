@@ -1,0 +1,110 @@
+# Update interval in seconds
+update_interval 4
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+own_window yes
+own_window_transparent yes
+#own_window_type override
+own_window_type desktop
+#own_window_type normal #use this if you want a nice shadow to appear around conky
+
+# If own_window is yes, these window manager hints may be used
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 180 0
+#maximum_width 200
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Stippled borders?
+stippled_borders 0
+
+# border margins
+border_margin 5
+
+# border width
+border_width 1
+
+# Default colors and also border colors
+default_color white
+#default_shade_color black
+#default_outline_color grey
+own_window_colour grey
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 12
+gap_y 8
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+# Add spaces to keep things from moving about? This only affects certain objects.
+use_spacer none
+
+TEXT
+DATE ${hr 2}
+${alignc 19}${font Andale Mono:size=20}${time %H:%M}${font}
+${voffset 2}${alignc}${time %A, %d %B %Y}
+
+SYSTEM ${hr 2}
+${alignc 24}${font Andale Mono:size=14}${nodename}${font}
+${alignc -8}ThinkPad X220
+
+${font}Kernel: ${alignr}${kernel}
+${font}Temp: $alignr${execi 10 sensors | grep ^temp1 | tail -n 1 |awk '{print $2}'}
+${font}CPU1: ${cpu cpu1}% ${alignr}${cpubar cpu1 8,60}
+${font}CPU2: ${cpu cpu2}% ${alignr}${cpubar cpu2 8,60}
+${font}CPU3: ${cpu cpu3}% ${alignr}${cpubar cpu3 8,60}
+${font}CPU4: ${cpu cpu4}% ${alignr}${cpubar cpu4 8,60}
+${font}RAM: $memperc% ${alignr}${membar 8,60}
+${font}Battery: ${battery_percent BAT0}% ${alignr}${battery_bar 8,60 BAT0}
+${font}Uptime: ${alignr}${uptime}
+
+NETWORK ${hr 2}
+
+${if_existing /proc/net/route wlp3s0}${font}WiFi:
+${font} Up: ${upspeed wlp3s0}${alignr}${upspeedgraph wlp3s0 8,60 black black}
+${font} Down: ${downspeed wlp3s0}${alignr}${downspeedgraph wlp3s0 8,60 black black}
+${font} Upload: ${alignr}${totalup wlp3s0}
+${font} Download: ${alignr}${totaldown wlp3s0}${endif}
+
+${if_existing /proc/net/route enp0s25}${font}Ethernet:
+${font} Up: ${upspeed enp0s25}${alignr}${upspeedgraph enp0s25 8,60 black black}
+${font} Down: ${downspeed enp0s25}${alignr}${downspeedgraph enp0s25 8,60 black black}
+${font} Upload: ${alignr}${totalup enp0s25}
+${font} Download: ${alignr}${totaldown enp0s25}${endif}

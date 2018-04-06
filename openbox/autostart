@@ -1,0 +1,16 @@
+#compton - compositor
+compton &
+
+#guake - terminal emulator
+guake &
+
+#feh - wallpaper
+sh ~/.fehbg &
+
+#thinkpad-scripts
+thinkpad-touchpad on &
+thinkpad-trackpoint on &
+
+#conky
+sleep 10
+conky -b &
