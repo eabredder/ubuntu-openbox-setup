@@ -1,5 +1,5 @@
 # ubuntu-openbox-setup
-Install scripts and settings for current openbox on Thinkpad X220
+Install scripts and settings for current openbox on Thinkpad x220
 
 [Ubuntu Minimal Install 17.10](http://archive.ubuntu.com/ubuntu/dists/artful/main/installer-amd64/current/images/netboot/mini.iso)
 
@@ -7,13 +7,23 @@ Place the 'openbox' folder in '~/.configs'
 
 The install script will create the **autostart** file based on the programs being installed, it will also download the **.conkyrc** file into the' home' directory to get started.
 
-This script is optimized for the Thinkpad X220, including hardware optimization.
+This script is mainly for the Thinkpad x220, including hardware optimization.
 
-To run this script:
+To run Part 1:
 ```
+wget https://github.com/eabredder/ubuntu-openbox-setup/blob/master/installbash1.sh
 chmod u+x installbash1.sh
-chmod u+x installbash2.sh
-
 sudo ./installbash1.sh
+```
+To run Part 2:
+```
+wget https://github.com/eabredder/ubuntu-openbox-setup/blob/master/installbash2.sh
+chmod u+x installbash2.sh
 sudo ./installbash2.sh
+```
+
+Get the rest:
+```
+sudo apt install git
+git clone https://github.com/eabredder/ubuntu-openbox-setup
 ```
