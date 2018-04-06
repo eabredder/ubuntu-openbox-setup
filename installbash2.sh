@@ -1,51 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
 #Ubuntu Minimal Install 17.10
 
-echo -e "welcome to the ubuntu minimal install 17.10 openbox configuration guide for thinkpad x220"
+echo "welcome to the ubuntu minimal install 17.10 openbox configuration guide for thinkpad x220"
 sleep 1
-echo -e "make sure to select step1 after your installation and then reload this program after the automatic reboot and choose step2 to finish"
+echo "this is part 2 of the installation... make sure you have already executed the first portion"
 sleep 1
-echo -e "please type step1 or step2 to continue..."
 
-OPTIONS="step1 step2"
-	select opt in $OPTIONS; do
-	        if [ "$opt" = "step1" ]; then
-
-#GRUB
-echo "video=SVIDEO-1:d" >> /etc/default/grub
-update-grub $$ update-grub2
-
-#Repos
-add-apt-repository ppa:papirus/papirus 
-add-apt-repository ppa:linrunner/tlp
-add-apt-repository ppa:otto-kesselgulasch/gimp
-add-apt-repository ppa:inkscape.dev/stable
-add-apt-repository ppa:ubuntuhandbook1/audacity
-add-apt-repository ppa:obsproject/obs-studio
-add-apt-repository ppa:atareao/atareao
-echo -e "deb http://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/ /" | tee -a /etc/apt/sources.list.d/home:stevenpusser.list
-wget -nv https://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/Release.key -O Release.key | apt-key add - < Release.key
-wget -qO - http://files.openscad.org/OBS-Repository-Key.pub | apt-key add -
-echo -e "deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_17.10/ ./" | tee -a /etc/apt/sources.list.d/openscad.list
-echo -e "deb https://dl.bintray.com/resin-io/debian stable etcher" | tee -a /etc/apt/sources.list.d/etcher.list
-apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 379CE192D401AB61
-
-apt update
-
-#Installs: lightdm, openbox, xorg, compton, spacefm, guake, and more drivers...
-apt install sudo apt install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings openbox obconf obmenu ubuntu-drivers-common mesa-utils-extra compton compton-conf xorg xserver-xorg spacefm guake intel-microcode software-properties-common linux-headers-generic build-essential make -y
-
-openbox --reconfigure
-
-clear
-echo "re-run this script after reboot and choose step2 at startup to finish installing..."
-sleep 10
-reboot
-
-		elif [ "$opt" = "step2" ]; then
-
-echo -e "please enter your username"
+echo "please enter your username"
 read USERNAME
 
 apt update
@@ -78,17 +40,17 @@ mkdir ~/.config/openbox
 
 #Printers
 echo "would you like to install printer software...?"
-PRINT "y n"
-select opt in $PRINT; do
-	if [ "$opt" = "n"]; then
-		echo "skipping printers"
-	elif ["$opt" = "y"]; then
-		apt install cups cups-bsd cups-client hplip  printer-driver-c2esp printer-driver-foo2zjs printer-driver-min12xxw printer-driver-ptouch printer-driver-pxljr printer-driver-sag-gdi printer-driver-splix -y
-	else
-		clear
-		echo "not an option."
-	fi
-done
+PRINT1="yes no"
+	select opt2 in $PRINT1; do
+		if [ "$opt2" = "no"]; then
+			echo "skipping printers"
+		elif ["$opt2" = "yes"]; then
+			apt install cups cups-bsd cups-client hplip  printer-driver-c2esp printer-driver-foo2zjs printer-driver-min12xxw printer-driver-ptouch printer-driver-pxljr printer-driver-sag-gdi printer-driver-splix -y
+		else
+			clear
+			echo "not an option."
+		fi
+	done
 
 #sensors
 sensors-detect
@@ -113,20 +75,20 @@ usermod -a -G video "$USERNAME"
 #adding /dev/sdb1
 echo -e "would you like to mount /dev/sdb1 and make it accessible? type mountsdb1 or skip to continue..."
 SDBOPT="mountsdb1 skip"
-select opt in $SDBOPT; do
-	if ["$opt" = "skip"]; then
+select opt3 in $SDBOPT; do
+	if ["$opt3" = "skip"]; then
 		echo skip...
-	elif ["$opt" = "mountsdb1"]; then
+	elif ["$opt3" = "mountsdb1"]; then
 		mkdir /media/sdb1
 		mount /dev/sdb1 /media/sdb1 -t ext4
 		#use sudo blkid to get UUID
 		echo -e "/dev/sdb1 /media/sdb1 ext4 defaults 0 0" >> /etc/fstab
 		mount -a
 		chmod 777 /media/sdb1
-		echo done.
+		echo" done."
 	else
 		clear
-		echo not an option.
+		echo "not an option."
 	fi
 done
 
@@ -163,9 +125,3 @@ echo "rebooting..."
 sleep 3
 reboot
 
-		else 
-			clear
-			echo no options...
-			exit
-		fi
-	done

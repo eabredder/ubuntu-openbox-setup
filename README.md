@@ -5,6 +5,15 @@ Install scripts and settings for current openbox on Thinkpad X220
 
 Place the 'openbox' folder in '~/.configs'
 
-The install script will create the autostart file based on the programs being installed, it will also download the .conkyrc file into the home directory to get started.
+The install script will create the **autostart** file based on the programs being installed, it will also download the **.conkyrc** file into the' home' directory to get started.
 
 This script is optimized for the Thinkpad X220, including hardware optimization.
+
+To run this script:
+```
+chmod u+x installbash1.sh
+chmod u+x installbash2.sh
+
+sudo ./installbash1.sh
+sudo ./installbash2.sh
+```
