@@ -111,7 +111,7 @@ select opt in $SDBOPT; do
 		mkdir /media/sdb1
 		mount /dev/sdb1 /media/sdb1 -t ext4
 		#use sudo blkid to get UUID
-		echo -e "bc3dcca4-80ca-4b8a-82d7-2ff85b02ebd3 /media/sdb1 ext4 defaults 0 0" >> /etc/fstab
+		echo -e "/dev/sdb1 /media/sdb1 ext4 defaults 0 0" >> /etc/fstab
 		mount -a
 		chmod 777 /media/sdb1
 		echo done.
