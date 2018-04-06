@@ -65,6 +65,8 @@ apt install openscad-nightly gimp gimp-data-extras gimp-help-en inkscape -y
 #Python3
 apt install python3 python3-dev python-pip python3-venv libssl-dev libffi-dev python-dev -y
 
+mkdir ~/.config/openbox
+
 #Printers
 echo "would you like to install printer software...?"
 PRINT "y n"
@@ -142,7 +144,7 @@ openbox --reconfigure
 openbox --restart
 
 #conky setup
-
+wget "https://github.com/eabredder/ubuntu-openbox-setup/blob/master/.conkyrc"
 
 #end
 clear
