@@ -2,6 +2,12 @@
 
 #Ubuntu Minimal Install 17.10
 
+echo -e "welcome to the ubuntu minimal install 17.10 openbox configuration guide for thinkpad x220"
+sleep 1
+echo -e "make sure to select step1 after your installation and then reload this program after the automatic reboot and choose step2 to finish"
+sleep 1
+echo -e "please type step1 or step2 to continue..."
+
 OPTIONS="step1 step2"
 	select opt in $OPTIONS; do
 	        if [ "$opt" = "step1" ]; then
@@ -18,11 +24,11 @@ add-apt-repository ppa:inkscape.dev/stable
 add-apt-repository ppa:ubuntuhandbook1/audacity
 add-apt-repository ppa:obsproject/obs-studio
 add-apt-repository ppa:atareao/atareao
-echo "deb http://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/ /" | tee -a /etc/apt/sources.list.d/home:stevenpusser.list
+echo -e "deb http://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/ /" | tee -a /etc/apt/sources.list.d/home:stevenpusser.list
 wget -nv https://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/Release.key -O Release.key | apt-key add - < Release.key
 wget -qO - http://files.openscad.org/OBS-Repository-Key.pub | apt-key add -
-echo "deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_17.10/ ./" | tee -a /etc/apt/sources.list.d/openscad.list
-echo "deb https://dl.bintray.com/resin-io/debian stable etcher" | tee -a /etc/apt/sources.list.d/etcher.list
+echo -e "deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_17.10/ ./" | tee -a /etc/apt/sources.list.d/openscad.list
+echo -e "deb https://dl.bintray.com/resin-io/debian stable etcher" | tee -a /etc/apt/sources.list.d/etcher.list
 apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 379CE192D401AB61
 
 apt update
@@ -38,6 +44,9 @@ sleep 10
 reboot
 
 		elif [ "$opt" = "step2" ]; then
+
+echo -e "please enter your username"
+read USERNAME
 
 apt update
 
@@ -99,10 +108,10 @@ echo -e "sleep 1\ncompton -b &\nguake &\nsh ~/.fehbg &\nsleep 5\nconky -b &\nspa
 
 #acpilight rules
 echo -e "SUBSYSTEM=="backlight", ACTION=="add",\nRUN+="/bin/chgrp video %S%p/brightness",\nRUN+="/bin/chmod g+w %S%p/brightness"" > /etc/udev/rules.d/90-backlight.rules
-usermod -a -G video $USERNAME
+usermod -a -G video "$USERNAME"
 
 #adding /dev/sdb1
-echo would you like to mount /dev/sdb1 and make it accessible? type mountsdb1 or skip to continue...
+echo -e "would you like to mount /dev/sdb1 and make it accessible? type mountsdb1 or skip to continue..."
 SDBOPT="mountsdb1 skip"
 select opt in $SDBOPT; do
 	if ["$opt" = "skip"]; then
@@ -123,7 +132,7 @@ done
 
 #thinkfan
 apt install thinkfan
-echo "options thinkpad_acpi fan_control=1" > /etc/modprobe.d/thinkfan.conf
+echo -e "options thinkpad_acpi fan_control=1" > /etc/modprobe.d/thinkfan.conf
 modprobe thinkpad_acpi
 echo -e "START = yes" >> /etc/default/thinkfan
 echo -e "tp_fan /proc/acpi/ibm/fan\nhwmon /sys/class/thermal/thermal_zone0/temp\n(0, 0,  60)\n(1, 53, 65)\n(2, 55, 66)\n(3, 57, 68)\n(4, 61, 70)\n(5, 64, 71)\n(7, 68, 32767)" >> /etc/thinkfan.conf
