@@ -203,51 +203,51 @@
         <wrap>no</wrap>
       </action>
     </keybind> -->
-<!--Resizing windows to corners -->
-<keybind key="C-A-Left">
-        <action name="UnmaximizeFull"/>
-        <action name="MaximizeVert"/>
-        <action name="MoveResizeTo">
-            <width>50%</width>
-        </action>
-       <action name="MoveToEdge">
-           <direction>west</direction>
-       </action>
+    <!--Resizing windows to corners -->
+    <keybind key="C-A-Left">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge">
+        <direction>west</direction>
+      </action>
     </keybind>
     <keybind key="C-A-Right">
-        <action name="UnmaximizeFull"/>
-        <action name="MaximizeVert"/>
-        <action name="MoveResizeTo">
-            <width>50%</width>
-        </action>
-        <action name="MoveToEdge">
-            <direction>east</direction>
-        </action>
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge">
+        <direction>east</direction>
+      </action>
     </keybind>
     <keybind key="C-A-Up">
-        <action name="UnmaximizeFull"/>
-        <action name="MaximizeHorz"/>
-        <action name="MoveResizeTo">
-            <height>50%</height>
-        </action>
-        <action name="MoveToEdge">
-            <direction>north</direction>
-        </action>
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeHorz"/>
+      <action name="MoveResizeTo">
+        <height>50%</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>north</direction>
+      </action>
     </keybind>
     <keybind key="C-A-Down">
-        <action name="UnmaximizeFull"/>
-        <action name="MaximizeHorz"/>
-        <action name="MoveResizeTo">
-            <height>50%</height>
-        </action>
-        <action name="MoveToEdge">
-            <direction>south</direction>
-        </action>
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeHorz"/>
+      <action name="MoveResizeTo">
+        <height>50%</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>south</direction>
+      </action>
     </keybind>
     <keybind key="C-A-Return">
-        <action name="ToggleMaximize"/>
+      <action name="ToggleMaximize"/>
     </keybind>
-<!--Cont'd from previous section-->
+    <!--Cont'd from previous section-->
     <keybind key="S-A-Left">
       <action name="SendToDesktop">
         <to>left</to>
@@ -400,20 +400,20 @@
     </keybind>
     <keybind key="XF86AudioMicMute">
       <action name="Execute">
-       <command>thinkpad-mutemic</command>
+        <command>thinkpad-mutemic</command>
       </action>
     </keybind>
     <keybind key="XF86MonBrightnessUp">
-	<action name="Execute">
-	<command>acpilight +10</command>
-	</action>
-	</keybind>
+      <action name="Execute">
+        <command>acpilight +10</command>
+      </action>
+    </keybind>
     <keybind key="XF86MonBrightnessDown">
-        <action name="Execute">
+      <action name="Execute">
         <command>acpilight -10</command>
-        </action>
-        </keybind>
-   </keyboard>
+      </action>
+    </keybind>
+  </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
