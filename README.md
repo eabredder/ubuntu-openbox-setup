@@ -25,8 +25,11 @@ git clone https://github.com/eabredder/ubuntu-openbox-setup
 ```
 
 Resources:
+
 [McDonnell Tech x220 Ubuntu Guide](http://x220.mcdonnelltech.com/ubuntu/)
+
 [McDonnell Tech x220 Information](http://x220.mcdonnelltech.com/)
+
 [McDonnell Tech T420s Information](http://mcdojf.wixsite.com/t420s)
 
-Firmware for x220 and t420s updates are located in repository
+Firmware for x220 and t420s updates are located in repository under 'BIOS'
