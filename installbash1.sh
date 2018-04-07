@@ -25,6 +25,8 @@ wget -qO - http://files.openscad.org/OBS-Repository-Key.pub | apt-key add -
 echo -e "deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_17.10/ ./" | tee -a /etc/apt/sources.list.d/openscad.list
 echo -e "deb https://dl.bintray.com/resin-io/debian stable etcher" | tee -a /etc/apt/sources.list.d/etcher.list
 apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 379CE192D401AB61
+add-apt-repository ppa:martin-ueding/stable -y
+echo "deb http://ppa.launchpad.net/martin-ueding/stable/ubuntu xenial main" > /etc/apt/sources.list.d/martin-ueding-ubuntu-stable-artful.list
 
 apt update
 
