@@ -26,6 +26,9 @@ apt install feh git lxappearance lxappearance-obconf papirus-icon-theme -y
 
 #Video/Audio
 apt install guvcview vlc browser-plugin-vlc audacity obs-studio  -y
+mkdir ~/Downloads/AppImages
+wget -P ~/Downloads/AppImages http://files.kde.org/kdenlive/release/Kdenlive-17.12.0d-x86_64.AppImage
+chmod u+x ~/Downloads/AppImages/Kdenlive-17.12.0d-x86_64.AppImage
 
 #Productivity
 apt install ghostscript texlive-full vim -y
@@ -36,7 +39,27 @@ apt install openscad-nightly gimp gimp-data-extras gimp-help-en inkscape -y
 #Python3
 apt install python3 python3-dev python-pip python3-venv libssl-dev libffi-dev python-dev -y
 
+#3d printer
+apt install gpx slic3r -y
+
 mkdir ~/.config/openbox
+
+#Libreoffice
+echo "would you like to install libreoffice...?"
+OFFICE="yes no"
+select opt4 in $OFFICE; do
+	if [ "$opt4" = "no" ]; then
+		echo "skipping libreoffice"
+	elif [ "$opt4" = "yes" ]; then
+		apt-get install python-software-properties -y
+		apt-add-repository -y ppa:libreoffice/ppa
+		apt update
+		apt install libreoffice libreoffice-help-en libreoffice-l10n-en libreoffice-pdfimport libreoffice-presentation-minimizer libreoffice-presenter-console libreoffice-report-builder-bin mozilla-libreoffice -y
+	else
+		clear
+		echo "not an option"
+	fi
+done
 
 #Printers
 echo "would you like to install printer software...?"
