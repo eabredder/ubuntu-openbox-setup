@@ -4,8 +4,6 @@
 
 echo "welcome to the ubuntu minimal install 17.10 openbox configuration guide for thinkpad x220"
 sleep 1
-echo "this is part 2 of the installation... make sure you have already executed the first portion"
-sleep 1
 
 echo "please enter your username"
 read USERNAME
@@ -14,6 +12,8 @@ read USERNAME
 echo "video=SVIDEO-1:d" >> /etc/default/grub
 update-grub
 update-grub2
+
+apt install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings obconf obmenu ubuntu-drivers-common mesa-utils-extra compton compton-conf spacefm guake intel-microcode software-properties-common linux-headers-generic build-essential make -y
 
 #Repos
 add-apt-repository -y ppa:papirus/papirus
