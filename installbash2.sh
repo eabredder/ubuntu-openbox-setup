@@ -70,12 +70,12 @@ mkdir ~/.config/openbox
 
 #Libreoffice
 echo "would you like to install libreoffice...?"
-OFFICE="yes no"
+OFFICE="libreoffice no_libreoffice"
 select opt4 in $OFFICE; do
-	if [ "$opt4" = "no" ]; then
+	if [ "$opt4" = "no_libreoffice" ]; then
 		echo "skipping libreoffice"
 		break
-	elif [ "$opt4" = "yes" ]; then
+	elif [ "$opt4" = "libreoffice" ]; then
 		apt-get install python-software-properties -y
 		apt-add-repository -y ppa:libreoffice/ppa
 		apt update
@@ -89,13 +89,13 @@ done
 
 #Printers
 echo "would you like to install printer software...?"
-PRINT1="yes no"
+PRINT1="printers no_printers"
 	select opt2 in $PRINT1; do
-		if [ "$opt2" = "no" ]; then
+		if [ "$opt2" = "no_printers" ]; then
 			echo "skipping printers"
 			break
-		elif [ "$opt2" = "yes" ]; then
-			apt install cups cups-bsd cups-client hplip  printer-driver-c2esp printer-driver-foo2zjs printer-driver-min12xxw printer-driver-ptouch printer-driver-pxljr printer-driver-sag-gdi printer-driver-splix -y
+		elif [ "$opt2" = "printers" ]; then
+			apt install cups cups-bsd cups-client hplip printer-driver-c2esp printer-driver-foo2zjs printer-driver-min12xxw printer-driver-ptouch printer-driver-pxljr printer-driver-sag-gdi printer-driver-splix -y
 			break
 		else
 			clear
