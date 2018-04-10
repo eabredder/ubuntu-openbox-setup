@@ -25,7 +25,9 @@ apt install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms acpilight lm-sensors conky-
 apt install feh git lxappearance lxappearance-obconf papirus-icon-theme -y
 
 #Video/Audio
-apt install guvcview vlc browser-plugin-vlc audacity obs-studio  -y
+apt install guvcview vlc browser-plugin-vlc audacity -y
+apt-get install obs-studio -y
+
 mkdir ~/Downloads/AppImages
 wget -P ~/Downloads/AppImages http://files.kde.org/kdenlive/release/Kdenlive-17.12.0d-x86_64.AppImage
 chmod u+x ~/Downloads/AppImages/Kdenlive-17.12.0d-x86_64.AppImage
@@ -50,11 +52,13 @@ OFFICE="yes no"
 select opt4 in $OFFICE; do
 	if [ "$opt4" = "no" ]; then
 		echo "skipping libreoffice"
+		break
 	elif [ "$opt4" = "yes" ]; then
 		apt-get install python-software-properties -y
 		apt-add-repository -y ppa:libreoffice/ppa
 		apt update
 		apt install libreoffice libreoffice-help-en libreoffice-l10n-en libreoffice-pdfimport libreoffice-presentation-minimizer libreoffice-presenter-console libreoffice-report-builder-bin mozilla-libreoffice -y
+		break
 	else
 		clear
 		echo "not an option"
@@ -67,8 +71,10 @@ PRINT1="yes no"
 	select opt2 in $PRINT1; do
 		if [ "$opt2" = "no"]; then
 			echo "skipping printers"
+			break
 		elif ["$opt2" = "yes"]; then
 			apt install cups cups-bsd cups-client hplip  printer-driver-c2esp printer-driver-foo2zjs printer-driver-min12xxw printer-driver-ptouch printer-driver-pxljr printer-driver-sag-gdi printer-driver-splix -y
+			break
 		else
 			clear
 			echo "not an option."
@@ -101,6 +107,7 @@ SDBOPT="mountsdb1 skip"
 select opt3 in $SDBOPT; do
 	if ["$opt3" = "skip"]; then
 		echo skip...
+		break
 	elif ["$opt3" = "mountsdb1"]; then
 		mkdir /media/sdb1
 		mount /dev/sdb1 /media/sdb1 -t ext4
@@ -109,9 +116,10 @@ select opt3 in $SDBOPT; do
 		mount -a
 		chmod 777 /media/sdb1
 		echo done.
+		break
 	else
 		clear
-		echo not an option.
+		echo not an option...
 	fi
 done
 
