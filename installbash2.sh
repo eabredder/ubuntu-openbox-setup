@@ -161,18 +161,18 @@ apt install xserver-xorg-input-synaptics
 echo -e "xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Noise Cancellation" 20 20 &" >> ~/.config/openbox/autostart
 
 #install arc-darker theme
-wget -P ~/Downloads/arc-dark-theme "https://github.com/dglava/arc-openbox/blob/master/arc-darker.obt"
+wget -P ~/Downloads/arc-dark-theme "https://github.com/dglava/arc-openbox/blob/master/arc-darker.obt?raw=true"
 obconf --install ~/Downloads/arc-dark-theme/arc-darker.obt
 
 #openbox configs
-wget -P ~/.configs/openbox "https://github.com/eabredder/ubuntu-openbox-setup/blob/master/openbox/rc.xml"
-wget -P ~/.configs/openbox "https://github.com/eabredder/ubuntu-openbox-setup/blob/master/openbox/menu.xml"
+wget -P ~/.configs/openbox "https://raw.githubusercontent.com/eabredder/ubuntu-openbox-setup/master/openbox/menu.xml"
+wget -P ~/.configs/openbox "https://raw.githubusercontent.com/eabredder/ubuntu-openbox-setup/master/openbox/rc.xml"
 
 openbox --reconfigure
 openbox --restart
 
 #conky setup
-wget "https://github.com/eabredder/ubuntu-openbox-setup/blob/master/.conkyrc"
+wget "https://raw.githubusercontent.com/eabredder/ubuntu-openbox-setup/master/.conkyrc"
 
 #end
 clear
