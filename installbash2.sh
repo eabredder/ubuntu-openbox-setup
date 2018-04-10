@@ -120,7 +120,7 @@ echo -e "sleep 1\nsudo tlp start &" >> ~/.config/openbox/autostart
 echo -e "sleep 1\ncompton -b &\nguake &\nsh ~/.fehbg &\nsleep 5\nconky -b &" >> ~/.config/openbox/autostart
 
 #acpilight rules
-echo -e "SUBSYSTEM=="backlight", ACTION=="add",\nRUN+="/bin/chgrp video %S%p/brightness",\nRUN+="/bin/chmod g+w %S%p/brightness"" > /etc/udev/rules.d/90-backlight.rules
+echo -e "SUBSYSTEM=='backlight', ACTION=='add',\nRUN+='/bin/chgrp video %S%p/brightness',\nRUN+='/bin/chmod g+w %S%p/brightness'" > /etc/udev/rules.d/90-backlight.rules
 usermod -a -G video "$USERNAME"
 
 #adding /dev/sdb1
@@ -154,11 +154,11 @@ echo -e "tp_fan /proc/acpi/ibm/fan\nhwmon /sys/class/thermal/thermal_zone0/temp\
 
 #intel 3000hd screen tearing issues
 mkdir /etc/X11/xorg.conf.d/
-echo -e "Section "Device" \nIdentifier "Intel Graphics" \nDriver "Intel" \nOption "TearFree" "true" \nEndSection" > /etc/X11/xorg.conf.d/20-intel.conf
+echo -e "Section 'Device' \nIdentifier 'Intel Graphics' \nDriver 'Intel' \nOption 'TearFree' 'true' \nEndSection" > /etc/X11/xorg.conf.d/20-intel.conf
 
 #synaptic touch pad
 apt install xserver-xorg-input-synaptics
-echo -e "xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Noise Cancellation" 20 20 &" >> ~/.config/openbox/autostart
+echo -e "xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'Synaptics Noise Cancellation' 20 20 &" >> ~/.config/openbox/autostart
 
 #install arc-darker theme
 wget -P ~/Downloads/arc-dark-theme "https://github.com/dglava/arc-openbox/blob/master/arc-darker.obt"
