@@ -13,7 +13,9 @@ echo "video=SVIDEO-1:d" >> /etc/default/grub
 update-grub
 update-grub2
 
-apt install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings obconf obmenu ubuntu-drivers-common mesa-utils-extra compton compton-conf spacefm guake intel-microcode software-properties-common linux-headers-generic build-essential make -y
+apt install openbox xorg xserver-xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings obconf obmenu ubuntu-drivers-common mesa-utils-extra compton compton-conf spacefm guake intel-microcode software-properties-common linux-headers-generic build-essential make -y
+
+openbox --reconfigure
 
 #Repos
 add-apt-repository -y ppa:papirus/papirus
@@ -89,10 +91,10 @@ done
 echo "would you like to install printer software...?"
 PRINT1="yes no"
 	select opt2 in $PRINT1; do
-		if [ "$opt2" = "no"]; then
+		if [ "$opt2" = "no" ]; then
 			echo "skipping printers"
 			break
-		elif ["$opt2" = "yes"]; then
+		elif [ "$opt2" = "yes" ]; then
 			apt install cups cups-bsd cups-client hplip  printer-driver-c2esp printer-driver-foo2zjs printer-driver-min12xxw printer-driver-ptouch printer-driver-pxljr printer-driver-sag-gdi printer-driver-splix -y
 			break
 		else
@@ -125,10 +127,10 @@ usermod -a -G video "$USERNAME"
 echo "would you like to mount /dev/sdb1 and make it accessible? type mountsdb1 or skip to continue..."
 SDBOPT="mountsdb1 skip"
 select opt3 in $SDBOPT; do
-	if ["$opt3" = "skip"]; then
+	if [ "$opt3" = "skip" ]; then
 		echo skip...
 		break
-	elif ["$opt3" = "mountsdb1"]; then
+	elif [ "$opt3" = "mountsdb1" ]; then
 		mkdir /media/sdb1
 		mount /dev/sdb1 /media/sdb1 -t ext4
 		#use sudo blkid to get UUID

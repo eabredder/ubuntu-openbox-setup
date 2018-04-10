@@ -7,15 +7,9 @@ The install script will create the **autostart** file based on the programs bein
 
 This script is mainly for the Thinkpad x220, including hardware optimization.
 
-To run Part 1:
+To run:
 ```
-sudo apt install openbox xorg xserver-xorg
-reboot
-```
-To run Part 2:
-```
-startx
-wget https://github.com/eabredder/ubuntu-openbox-setup/blob/master/installbash2.sh
+wget https://raw.githubusercontent.com/eabredder/ubuntu-openbox-setup/master/installbash2.sh
 chmod u+x installbash2.sh
 sudo ./installbash2.sh
 ```
