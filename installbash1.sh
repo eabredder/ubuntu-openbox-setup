@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #Ubuntu Minimal Install 17.10
 
