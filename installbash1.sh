@@ -1,11 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
 #Ubuntu Minimal Install 17.10
 
 echo "welcome to the ubuntu minimal install 17.10 openbox configuration guide for thinkpad x220"
+sleep 1
 echo "make sure to use this script first - wait for reboot and run the second script to finish..."
+sleep 1
 
-#GRUB
+#Grub
 echo "video=SVIDEO-1:d" >> /etc/default/grub
 update-grub 
 update-grub2
@@ -18,10 +20,10 @@ add-apt-repository -y ppa:inkscape.dev/stable
 add-apt-repository -y ppa:ubuntuhandbook1/audacity
 add-apt-repository -y ppa:obsproject/obs-studio
 add-apt-repository -y ppa:atareao/atareao
-echo -e "deb http://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/ /" | tee -a /etc/apt/sources.list.d/home:stevenpusser.list
-wget -nv https://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/Release.key -O Release.key | apt-key add - < Release.key
+echo "deb http://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/ /" | tee -a /etc/apt/sources.list.d/home:stevenpusser.list
+wget -nv https://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/Release.key -O Release.key | apt-key add -
 wget -qO - http://files.openscad.org/OBS-Repository-Key.pub | apt-key add -
-echo -e "deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_17.10/ ./" | tee -a /etc/apt/sources.list.d/openscad.list
+echo "deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_17.10/ ./" | tee -a /etc/apt/sources.list.d/openscad.list
 echo "deb https://dl.bintray.com/resin-io/debian stable etcher" | tee /etc/apt/sources.list.d/etcher.list
 apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 379CE192D401AB61
 
