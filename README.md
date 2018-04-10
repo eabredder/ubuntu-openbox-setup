@@ -9,12 +9,12 @@ This script is mainly for the Thinkpad x220, including hardware optimization.
 
 To run Part 1:
 ```
-wget https://github.com/eabredder/ubuntu-openbox-setup/blob/master/installbash1.sh
-chmod u+x installbash1.sh
-sudo ./installbash1.sh
+sudo apt install openbox xorg xserver-xorg
+reboot
 ```
 To run Part 2:
 ```
+startx
 wget https://github.com/eabredder/ubuntu-openbox-setup/blob/master/installbash2.sh
 chmod u+x installbash2.sh
 sudo ./installbash2.sh
