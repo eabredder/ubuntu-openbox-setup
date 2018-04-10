@@ -3,7 +3,6 @@
 #Ubuntu Minimal Install 17.10
 
 echo "welcome to the ubuntu minimal install 17.10 openbox configuration guide for thinkpad x220"
-sleep 1
 echo "make sure to use this script first - wait for reboot and run the second script to finish..."
 
 #GRUB
