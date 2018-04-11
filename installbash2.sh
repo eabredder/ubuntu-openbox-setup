@@ -64,8 +64,11 @@ apt install openscad-nightly gimp gimp-data-extras gimp-help-en inkscape -y
 apt install python3 python3-dev python-pip python3-venv libssl-dev libffi-dev python-dev -y
 
 #3d printer
-apt install gpx slic3r -y
+apt install gpx -y
+wget -P ~/Downloads/AppImages https://dl.slic3r.org/dev/linux/Slic3r-master-latest.AppImage
+chmod u+x ~/Downloads/AppImages/Slic3r-master-latest.AppImage
 
+#openbox config folder
 mkdir ~/.config/openbox
 
 #Libreoffice
