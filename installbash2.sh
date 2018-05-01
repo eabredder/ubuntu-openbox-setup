@@ -13,7 +13,7 @@ echo "video=SVIDEO-1:d" >> /etc/default/grub
 update-grub
 update-grub2
 
-apt install openbox xorg xserver-xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings obconf obmenu ubuntu-drivers-common mesa-utils-extra compton compton-conf spacefm guake intel-microcode software-properties-common linux-headers-generic build-essential make -y
+apt install openbox xorg xserver-xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings obconf obmenu ubuntu-drivers-common mesa-utils-extra compton compton-conf spacefm guake intel-microcode software-properties-common linux-headers-generic build-essential make bluez* blueman -y
 
 openbox --reconfigure
 
@@ -26,6 +26,7 @@ add-apt-repository -y ppa:ubuntuhandbook1/audacity
 add-apt-repository -y ppa:obsproject/obs-studio
 add-apt-repository -y ppa:atareao/atareao
 add-apt-repository -y ppa:deluge-team/ppa
+add-apt-repository ppa:kritalime/ppa
 echo -e "deb http://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/ /" | tee -a /etc/apt/sources.list.d/home:stevenpusser.list
 wget -nv https://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/Release.key -O Release.key | apt-key add - < Release.key
 wget -qO - http://files.openscad.org/OBS-Repository-Key.pub | apt-key add -
@@ -59,7 +60,7 @@ chmod u+x ~/Downloads/AppImages/Kdenlive-17.12.0d-x86_64.AppImage
 apt install ghostscript texlive-full vim -y
 
 #Graphics
-apt install openscad-nightly gimp gimp-data-extras gimp-help-en inkscape -y
+apt install openscad-nightly gimp gimp-data-extras gimp-help-en inkscape krita -y
 
 #Python3
 apt install python3 python3-dev python-pip python3-venv libssl-dev libffi-dev python-dev -y
@@ -121,7 +122,7 @@ echo 60 > /sys/devices/platform/smapi/BAT0/stop_charge_thresh
 echo -e "sleep 1\nsudo tlp start &" >> ~/.config/openbox/autostart
 
 #autostart programs...
-echo -e "sleep 1\ncompton -b &\nguake &\nsh ~/.fehbg &\nsleep 5\nconky -b &" >> ~/.config/openbox/autostart
+echo -e "sleep 1\ncompton -b &\nguake &\nsh ~/.fehbg &\nsleep 5\nconky -b &\nsystemctl enable bluetooth.service &" >> ~/.config/openbox/autostart
 
 #acpilight rules
 echo -e "SUBSYSTEM=='backlight', ACTION=='add',\nRUN+='/bin/chgrp video %S%p/brightness',\nRUN+='/bin/chmod g+w %S%p/brightness'" > /etc/udev/rules.d/90-backlight.rules
