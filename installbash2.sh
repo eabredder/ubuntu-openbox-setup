@@ -25,6 +25,7 @@ add-apt-repository -y ppa:inkscape.dev/stable
 add-apt-repository -y ppa:ubuntuhandbook1/audacity
 add-apt-repository -y ppa:obsproject/obs-studio
 add-apt-repository -y ppa:atareao/atareao
+add-apt-repository -y ppa:deluge-team/ppa
 echo -e "deb http://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/ /" | tee -a /etc/apt/sources.list.d/home:stevenpusser.list
 wget -nv https://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/Release.key -O Release.key | apt-key add - < Release.key
 wget -qO - http://files.openscad.org/OBS-Repository-Key.pub | apt-key add -
@@ -38,7 +39,7 @@ apt update
 apt install ubuntu-restricted-extras ttf-ubuntu-font-family ubuntu-docs -y
 
 #Utilities
-apt install gparted synaptic xarchiver network-manager net-tools network-manager-gnome etcher-electron deluge rar unrar p7zip-rar unace unzip sharutils ace p7zip-full xz-utils zip lzma tar gzip -y
+apt install gparted synaptic xarchiver network-manager net-tools network-manager-gnome etcher-electron deluge rar unrar p7zip-rar unace unzip sharutils ace p7zip-full xz-utils zip lzma tar gzip deluge -y
 
 #Hardware
 apt install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms acpilight lm-sensors conky-all -y
