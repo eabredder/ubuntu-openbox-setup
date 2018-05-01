@@ -39,7 +39,7 @@ apt update
 apt install ubuntu-restricted-extras ttf-ubuntu-font-family ubuntu-docs -y
 
 #Utilities
-apt install gparted synaptic xarchiver network-manager net-tools network-manager-gnome etcher-electron deluge rar unrar p7zip-rar unace unzip sharutils ace p7zip-full xz-utils zip lzma tar gzip deluge -y
+apt install gparted synaptic xarchiver network-manager net-tools network-manager-gnome etcher-electron deluge rar unrar p7zip-rar unace unzip sharutils ace p7zip-full xz-utils zip lzma tar gzip -y
 
 #Hardware
 apt install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms acpilight lm-sensors conky-all -y
