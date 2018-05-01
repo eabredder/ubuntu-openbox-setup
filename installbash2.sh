@@ -25,7 +25,7 @@ add-apt-repository -y ppa:inkscape.dev/stable
 add-apt-repository -y ppa:ubuntuhandbook1/audacity
 add-apt-repository -y ppa:obsproject/obs-studio
 add-apt-repository -y ppa:atareao/atareao
-add-apt-repository -y ppa:deluge-team/ppa
+# add-apt-repository -y ppa:deluge-team/ppa
 add-apt-repository -y ppa:kritalime/ppa
 echo -e "deb http://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/ /" | tee -a /etc/apt/sources.list.d/home:stevenpusser.list
 wget -nv https://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/Release.key -O Release.key | apt-key add - < Release.key
