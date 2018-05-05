@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#Ubuntu Minimal Install 17.10
+#Ubuntu Minimal Install 18.04
 
-echo "welcome to the ubuntu minimal install 17.10 openbox configuration guide for thinkpad x220"
+echo "welcome to the ubuntu minimal install 18.04 openbox configuration guide for thinkpad x220"
 sleep 1
 
 echo "please enter your username"
@@ -27,10 +27,10 @@ add-apt-repository -y ppa:obsproject/obs-studio
 add-apt-repository -y ppa:atareao/atareao
 # add-apt-repository -y ppa:deluge-team/ppa
 add-apt-repository -y ppa:kritalime/ppa
-echo -e "deb http://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/ /" | tee -a /etc/apt/sources.list.d/home:stevenpusser.list
-wget -nv https://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_17.10/Release.key -O Release.key | apt-key add - < Release.key
+echo -e "deb http://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_18.04/ /" | tee -a /etc/apt/sources.list.d/home:stevenpusser.list
+wget -nv https://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_18.04/Release.key -O Release.key | apt-key add - < Release.key
 wget -qO - http://files.openscad.org/OBS-Repository-Key.pub | apt-key add -
-echo -e  "deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_17.10/ ./" | tee -a /etc/apt/sources.list.d/openscad.list
+echo -e  "deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_18.04/ ./" | tee -a /etc/apt/sources.list.d/openscad.list
 echo -e "deb https://dl.bintray.com/resin-io/debian stable etcher" | tee /etc/apt/sources.list.d/etcher.list
 apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 379CE192D401AB61
 
@@ -53,8 +53,8 @@ apt install guvcview vlc browser-plugin-vlc audacity -y
 apt-get install obs-studio -y
 
 mkdir ~/Downloads/AppImages
-wget -P ~/Downloads/AppImages http://files.kde.org/kdenlive/release/Kdenlive-17.12.0d-x86_64.AppImage
-chmod u+x ~/Downloads/AppImages/Kdenlive-17.12.0d-x86_64.AppImage
+wget -P ~/Downloads/AppImages http://files.kde.org/kdenlive/release/kdenlive-18.04.0-x86_64.AppImage
+chmod u+x ~/Downloads/AppImages/kdenlive-18.04.0-x86_64.AppImage
 
 #Productivity
 apt install ghostscript texlive-full vim -y
